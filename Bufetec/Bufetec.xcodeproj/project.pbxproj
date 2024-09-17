@@ -13,6 +13,7 @@
 		FBAD65BF2C99F99200A8A7D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD65BE2C99F99200A8A7D3 /* Item.swift */; };
 		FBAD65C12C99F99300A8A7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAD65C02C99F99300A8A7D3 /* Assets.xcassets */; };
 		FBAD65C42C99F99300A8A7D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAD65C32C99F99300A8A7D3 /* Preview Assets.xcassets */; };
+		FBAD65D82C9A07A700A8A7D3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FBAD65D72C9A07A700A8A7D3 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBAD65D82C9A07A700A8A7D3 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +99,9 @@
 			dependencies = (
 			);
 			name = Bufetec;
+			packageProductDependencies = (
+				FBAD65D72C9A07A700A8A7D3 /* FirebaseAuth */,
+			);
 			productName = Bufetec;
 			productReference = FBAD65B72C99F99200A8A7D3 /* Bufetec.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +130,9 @@
 				Base,
 			);
 			mainGroup = FBAD65AE2C99F99200A8A7D3;
+			packageReferences = (
+				FBAD65D62C9A07A700A8A7D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FBAD65B82C99F99200A8A7D3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +368,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FBAD65D62C9A07A700A8A7D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FBAD65D72C9A07A700A8A7D3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBAD65D62C9A07A700A8A7D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FBAD65AF2C99F99200A8A7D3 /* Project object */;
 }
