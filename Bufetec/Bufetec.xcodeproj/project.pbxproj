@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8F6AB702C99FDC800E74EFB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */; };
 		FBAD65BB2C99F99200A8A7D3 /* BufetecApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD65BA2C99F99200A8A7D3 /* BufetecApp.swift */; };
 		FBAD65BD2C99F99200A8A7D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD65BC2C99F99200A8A7D3 /* ContentView.swift */; };
 		FBAD65BF2C99F99200A8A7D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAD65BE2C99F99200A8A7D3 /* Item.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FBAD65B72C99F99200A8A7D3 /* Bufetec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufetec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAD65BA2C99F99200A8A7D3 /* BufetecApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufetecApp.swift; sourceTree = "<group>"; };
 		FBAD65BC2C99F99200A8A7D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8F6AB6E2C99FD6E00E74EFB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FBAD65AE2C99F99200A8A7D3 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 			children = (
 				FBAD65BA2C99F99200A8A7D3 /* BufetecApp.swift */,
 				FBAD65BC2C99F99200A8A7D3 /* ContentView.swift */,
+				D8F6AB6E2C99FD6E00E74EFB /* Views */,
 				FBAD65BE2C99F99200A8A7D3 /* Item.swift */,
 				FBAD65C02C99F99300A8A7D3 /* Assets.xcassets */,
 				FBAD65C22C99F99300A8A7D3 /* Preview Content */,
@@ -142,6 +153,7 @@
 			files = (
 				FBAD65BD2C99F99200A8A7D3 /* ContentView.swift in Sources */,
 				FBAD65BF2C99F99200A8A7D3 /* Item.swift in Sources */,
+				D8F6AB702C99FDC800E74EFB /* LoginView.swift in Sources */,
 				FBAD65BB2C99F99200A8A7D3 /* BufetecApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
