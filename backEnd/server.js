@@ -1,16 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-//const itemRoutes = require('./routes/itemRoutes');
+const faqRoutes = require('./routes/faqRoutes');
 
 dotenv.config();
 connectDB();
 
 const app = express();
-app.use(express.json()); // Middleware for parsing JSON
+app.use(express.json());
 
-// Use item routes
-//app.use('/api/items', itemRoutes);
+// Use faq routes
+app.use('/api/faq', faqRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
