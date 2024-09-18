@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8EE89422C9A1750002BD006 /* LegalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89412C9A1750002BD006 /* LegalCase.swift */; };
+		D8EE89442C9A19B2002BD006 /* CaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */; };
+		D8EE89462C9A7481002BD006 /* CaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89452C9A7481002BD006 /* CaseListView.swift */; };
 		D8F6AB702C99FDC800E74EFB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */; };
 		FB1F39B82C9B4A3600C918B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB1F39B72C9B4A3600C918B3 /* GoogleService-Info.plist */; };
 		FB1F39BA2C9B4AA300C918B3 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = FB1F39B92C9B4AA300C918B3 /* FirebaseAuthCombine-Community */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8EE89412C9A1750002BD006 /* LegalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalCase.swift; sourceTree = "<group>"; };
+		D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailView.swift; sourceTree = "<group>"; };
+		D8EE89452C9A7481002BD006 /* CaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListView.swift; sourceTree = "<group>"; };
 		D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FB1F39B72C9B4A3600C918B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/alumno/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FBAD65B72C99F99200A8A7D3 /* Bufetec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufetec.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,10 +52,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8EE89402C9A173D002BD006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8EE89412C9A1750002BD006 /* LegalCase.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D8F6AB6E2C99FD6E00E74EFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D8F6AB6F2C99FDC800E74EFB /* LoginView.swift */,
+				D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */,
+				D8EE89452C9A7481002BD006 /* CaseListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -76,6 +92,7 @@
 				FBAD65BA2C99F99200A8A7D3 /* BufetecApp.swift */,
 				FBAD65BC2C99F99200A8A7D3 /* ContentView.swift */,
 				D8F6AB6E2C99FD6E00E74EFB /* Views */,
+				D8EE89402C9A173D002BD006 /* Models */,
 				FBAD65BE2C99F99200A8A7D3 /* Item.swift */,
 				FB1F39B72C9B4A3600C918B3 /* GoogleService-Info.plist */,
 				FBAD65C02C99F99300A8A7D3 /* Assets.xcassets */,
@@ -173,7 +190,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAD65BD2C99F99200A8A7D3 /* ContentView.swift in Sources */,
+				D8EE89462C9A7481002BD006 /* CaseListView.swift in Sources */,
 				FBAD65BF2C99F99200A8A7D3 /* Item.swift in Sources */,
+				D8EE89422C9A1750002BD006 /* LegalCase.swift in Sources */,
+				D8EE89442C9A19B2002BD006 /* CaseDetailView.swift in Sources */,
 				D8F6AB702C99FDC800E74EFB /* LoginView.swift in Sources */,
 				FBAD65BB2C99F99200A8A7D3 /* BufetecApp.swift in Sources */,
 			);
