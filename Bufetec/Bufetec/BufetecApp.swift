@@ -8,6 +8,8 @@
 import SwiftUI
 import SwiftData
 import Firebase
+import GoogleSignIn
+
 
 @main
 struct BufetecApp: App {
@@ -34,7 +36,10 @@ struct BufetecApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .onOpenURL(perform: { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                })
         }
         .modelContainer(sharedModelContainer)
     }
