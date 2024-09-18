@@ -22,6 +22,9 @@ struct BufetecApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    @State var legalCase: LegalCase = LegalCase.defaultValue
+
 
     var body: some Scene {
         WindowGroup {
