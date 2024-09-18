@@ -7,28 +7,34 @@
 
 import SwiftUI
 
-
 struct LoginView: View {
+    // Declaramos el estado para la animación del logo
+    @State private var animateLogo = false
+
     var body: some View {
         ZStack {
-            // Background Gradient
+            // Fondo
             LinearGradient(gradient: Gradient(colors: [Color.white, Color.gray.opacity(0.1)]),
                            startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack(spacing: 40) {
-                // Logo with Fade-In Animation
+                // Logo con animación de Fade-In
                 Image("bufetec_logo")
                     .resizable()
                     .scaledToFit()
                     .padding(.top, 50)
-                    .opacity(0.9)
+                    .opacity(animateLogo ? 1 : 0) // Animamos la opacidad
+                    .animation(.easeIn(duration: 1.5), value: animateLogo) // Duración de la animación
+                    .onAppear {
+                        animateLogo = true // Cuando aparece, activamos la animación
+                    }
                 
                 Spacer()
                 
-                // Google Sign-In Button
+                // Botón de Google Sign-In
                 Button(action: {
-                    // Google sign-in action
+                    // Acción del botón de Google
                 }) {
                     HStack {
                         Image("google_icon")
@@ -44,24 +50,15 @@ struct LoginView: View {
                     .shadow(color: Color.gray.opacity(0.6), radius: 5, x: 0, y: 3)
                 }
                 
+                // Texto "continuar como Cliente"
+                Text("continuar como Cliente")
+                    .font(.system(size: 16))
+                    .fontWeight(.regular)
+                    .foregroundColor(.black.opacity(0.8))
                 
-                // Dot Indicators and Text
-                VStack(spacing: 10) {
-                    HStack {
-                        Circle().frame(width: 10, height: 10).foregroundColor(.gray.opacity(0.6))
-                        Circle().frame(width: 10, height: 10).foregroundColor(.black)
-                        Circle().frame(width: 10, height: 10).foregroundColor(.gray.opacity(0.6))
-                    }
-                    Text("continuar como Cliente")
-                        .font(.system(size: 16))
-                        .fontWeight(.regular)
-                        .foregroundColor(.black.opacity(0.8))
-                }
-                
-                
-                // Continue Button
+                // Botón "Continuar"
                 Button(action: {
-                    // Continue action
+                    // Acción del botón Continuar
                 }) {
                     Text("Continuar")
                         .font(.system(size: 20))
@@ -84,4 +81,3 @@ struct LoginView: View {
 #Preview {
     LoginView()
 }
-
