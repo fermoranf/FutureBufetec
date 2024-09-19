@@ -1,6 +1,6 @@
 const citas = require('../schemas/citasSchema');
 
-exports.getItems = async (req, res) => {
+exports.getCitas = async (req, res) => {
     try {
       const items = await citas.find();
       res.status(200).json(items);

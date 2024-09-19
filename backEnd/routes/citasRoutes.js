@@ -3,6 +3,6 @@ const citasController = require("../controllers/citasController");
 
 const router = express.Router()
 
-router.get("/", citasController.getcitas)
+router.get("/", citasController.getCitas)
 
 module.exports = router;

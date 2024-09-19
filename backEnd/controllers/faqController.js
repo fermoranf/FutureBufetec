@@ -1,11 +1,10 @@
 const FAQ = require('../schemas/faqSchema');
 
-exports.getItems = async (req, res) => {
+exports.getFaqs = async (req, res) => {
     try {
-      const items = await FAQ.find();
-      res.status(200).json(items);
+        const faqs = await FAQ.find();
+        res.status(200).json(faqs);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
   };
-  

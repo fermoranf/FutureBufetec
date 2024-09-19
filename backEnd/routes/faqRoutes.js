@@ -3,6 +3,6 @@ const faqController = require("../controllers/faqController");
 
 const router = express.Router();
 
-router.get('/', faqController.getItems);
+router.get('/', faqController.getFaqs);
 
 module.exports = router;
