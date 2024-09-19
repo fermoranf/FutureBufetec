@@ -63,27 +63,27 @@ struct LoginView: View {
                     .shadow(color: Color.gray.opacity(0.6), radius: 5, x: 0, y: 3)
                 }
                 
-                // Texto "continuar como Cliente"
-                Text("continuar como Cliente")
-                    .font(.system(size: 16))
-                    .fontWeight(.regular)
-                    .foregroundColor(.black.opacity(0.8))
-                
+               // // Texto "continuar como Cliente"
+//                Text("continuar como Cliente")
+//                    .font(.system(size: 16))
+//                    .fontWeight(.regular)
+//                    .foregroundColor(.black.opacity(0.8))
+//                
                 // Botón "Continuar"
-                Button(action: {
-                    // Acción del botón Continuar
-                }) {
-                    Text("Continuar")
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 55)
-                        .foregroundColor(.white)
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(color: Color.gray.opacity(0.6), radius: 5, x: 0, y: 3)
-                }
-                .padding(.horizontal, 40)
+//                Button(action: {
+//                    // Acción del botón Continuar
+//                }) {
+//                    Text("Continuar")
+//                        .font(.system(size: 20))
+//                        .fontWeight(.bold)
+//                        .frame(maxWidth: .infinity)
+//                        .frame(height: 55)
+//                        .foregroundColor(.white)
+//                        .background(Color.black)
+//                        .cornerRadius(15)
+//                        .shadow(color: Color.gray.opacity(0.6), radius: 5, x: 0, y: 3)
+//                }
+//                .padding(.horizontal, 40)
                 
                 Spacer()
             }
