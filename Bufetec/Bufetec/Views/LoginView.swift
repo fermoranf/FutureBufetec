@@ -1,4 +1,4 @@
-//
+
 //  LoginView.swift
 //  Bufetec
 //
@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
+import GoogleSignIn
 
 struct LoginView: View {
     // Declaramos el estado para la animación del logo
     @State private var animateLogo = false
+    private let authentication = Authentication()
+    @State private var loginError: String?
 
     var body: some View {
         ZStack {
@@ -35,6 +39,15 @@ struct LoginView: View {
                 // Botón de Google Sign-In
                 Button(action: {
                     // Acción del botón de Google
+                    Task {
+                        do {
+                            try await authentication.googleOauth()
+        // Handle successful login (e.g., navigate to the main app)
+                        } catch {
+                            loginError = error.localizedDescription
+                            }
+                    }
+
                 }) {
                     HStack {
                         Image("google_icon")
