@@ -4,6 +4,8 @@ const connectDB = require('./config/db');
 const faqRoutes = require('./routes/faqRoutes');
 const noticiasRoutes = require('./routes/noticiasRoutes');
 const usuariosRoutes = require('./routes/usuariosRoutes');
+const citasRoutes = require('./routes/citasRoutes');
+const casosRoutes = require('./routes/casosRoutes');
 
 dotenv.config();
 connectDB();
@@ -21,7 +23,10 @@ app.use('/api/noticias', noticiasRoutes);
 app.use('/api/usuarios', usuariosRoutes);
 
 // Use citas routes
-app.use('/api/citas', require('./routes/citasRoutes'));
+app.use('/api/citas', citasRoutes);
+
+// Use casos routes
+app.use('/api/casos', casosRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
