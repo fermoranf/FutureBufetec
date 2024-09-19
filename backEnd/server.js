@@ -6,6 +6,7 @@ const noticiasRoutes = require('./routes/noticiasRoutes');
 const usuariosRoutes = require('./routes/usuariosRoutes');
 const citasRoutes = require('./routes/citasRoutes');
 const casosRoutes = require('./routes/casosRoutes');
+const tareasCasosRoutes = require('./routes/tareasCasosRoutes');
 
 dotenv.config();
 connectDB();

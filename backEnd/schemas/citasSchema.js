@@ -13,4 +13,4 @@ const citasSchema = new mongoose.Schema({
     collection: 'citas'
 });
 
-module.exports = mongoose.model('citas', citasSchema);
+module.exports = mongoose.model('CITAS', citasSchema);

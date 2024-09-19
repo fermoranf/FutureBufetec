@@ -9,4 +9,4 @@ const tareasCasosSchema = new mongoose.Schema({
     collection: 'tareasCasos'
 });
   
-module.exports = mongoose.model('tareasCasos', tareasCasosSchema);
+module.exports = mongoose.model('TAREASCASOS', tareasCasosSchema);
