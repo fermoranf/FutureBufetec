@@ -8,10 +8,29 @@
 import SwiftUI
 
 struct CaseListView: View {
+
+    // Datos de ejemplo
+    @State private var cases: [LegalCase] = [
+        LegalCase(caseID: "caso_001", clientID: "c001", lawyerAssigned: "a001", status: "en progreso", caseDetails: "Caso de robo de identidad", files: ["documento_prueba.pdf"]),
+        LegalCase(caseID: "caso_002", clientID: "c002", lawyerAssigned: "a002", status: "abierto", caseDetails: "Caso de fraude financiero", files: ["reporte_inicial.pdf"]),
+        LegalCase(caseID: "caso_003", clientID: "c003", lawyerAssigned: "a003", status: "cerrado", caseDetails: "Caso de disputa de contrato", files: ["contrato_disputado.pdf"])
+    ]
+
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(cases) { legalCase in
+                NavigationLink(destination: CaseDetailView(legalCase: legalCase)) {
+                    CaseRowView(legalCase: legalCase)
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+            .navigationTitle("Casos Legales")
+        }
     }
 }
+
 
 #Preview {
     CaseListView()
