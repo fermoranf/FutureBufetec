@@ -28,6 +28,9 @@ app.use('/api/citas', citasRoutes);
 // Use casos routes
 app.use('/api/casos', casosRoutes);
 
+// Use tareasCasos routes
+app.use('/api/tareasCasos', tareasCasosRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

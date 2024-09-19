@@ -1,0 +1,10 @@
+const tareasCasos = require("../schemas/tareasCasosSchema");
+
+exports.gettareasCasos =  async (req, res) => {
+    try {
+        const tareasCasos = await tareasCasos.find();
+        res.status(200).json(tareasCasos);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
