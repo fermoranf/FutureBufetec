@@ -20,7 +20,11 @@ app.use('/api/noticias', noticiasRoutes);
 // Use usuarios routes
 app.use('/api/usuarios', usuariosRoutes);
 
+// Use citas routes
+app.use('/api/citas', require('./routes/citasRoutes'));
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
