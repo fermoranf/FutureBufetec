@@ -37,3 +37,16 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+// Get all citas
+// Get all citas por abogado
+// Create a cita
+
+// get all noticias titulo, fecha y id
+// get noticias por id
+// post noticias
+
+// get all usuarios tipo abogado: nombre, especialidad
+// get abogado by id: nombre, especialidad, descripcion y foto?
+
+// get all casos numero, nombre y estado
+// 
