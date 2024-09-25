@@ -4,7 +4,6 @@
 //
 //  Created by Jorge on 17/09/24.
 //
-
 import SwiftUI
 
 struct CaseDetailView: View {
@@ -28,9 +27,9 @@ struct CaseDetailView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#FFF4E0"))
+                    .background(Color(hex: "#D0E8F2")) // Azul claro
                     .cornerRadius(12)
-                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 4)
+                    .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4)
                     
                     Spacer()
                     
@@ -51,9 +50,9 @@ struct CaseDetailView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#FFF4E0"))
+                    .background(Color(hex: "#D0E8F2")) // Azul claro
                     .cornerRadius(12)
-                    .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 4)
+                    .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4)
                 }
                 .padding(.horizontal)
                 
@@ -67,9 +66,9 @@ struct CaseDetailView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(hex: "#FFF4E0"))
+                .background(Color(hex: "#D0E8F2")) // Azul claro
                 .cornerRadius(12)
-                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 4)
+                .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4)
                 .padding(.horizontal)
                 
                 // Affected person
@@ -89,9 +88,9 @@ struct CaseDetailView: View {
                         .foregroundColor(.secondary)
                 }
                 .padding()
-                .background(Color(hex: "#FFF4E0"))
+                .background(Color(hex: "#D0E8F2")) // Azul claro
                 .cornerRadius(12)
-                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 4)
+                .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4)
                 .padding(.horizontal)
                 
                 // Documents Section
@@ -113,25 +112,25 @@ struct CaseDetailView: View {
                                     .foregroundColor(.primary)
                             }
                             .padding(8)
-                            .background(Color(hex: "#FFF4E0"))
+                            .background(Color(hex: "#D0E8F2")) // Azul claro
                             .cornerRadius(8)
-                            .shadow(color: .gray.opacity(0.2), radius: 2, x: 0, y: 2)
+                            .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 2, x: 0, y: 2)
                         }
                     }
                 }
                 .padding()
-                .background(Color(hex: "#FFF4E0"))
+                .background(Color(hex: "#D0E8F2")) // Azul claro
                 .cornerRadius(12)
-                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 4)
+                .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4)
                 .padding(.horizontal)
                 
                 Spacer()
             }
             .navigationTitle("Detalles del Caso")
             .padding(.top)
-            .background(Color(hex: "#F9F8E2").ignoresSafeArea()) // Apply background color and ignore safe area
+            .background(Color(hex: "#E6F2FF").ignoresSafeArea()) // Fondo azul claro
         }
-        .background(Color(hex: "#F9F8E2").ignoresSafeArea()) // Extend the background beyond the safe area
+        .background(Color(hex: "#E6F2FF").ignoresSafeArea()) // Fondo azul claro
     }
 }
 

@@ -4,47 +4,35 @@
 //
 //  Created by Alumno on 18/09/24.
 //
-
 import SwiftUI
 import Firebase
 import FirebaseAuth
 
 struct HomeView: View {
     
-    @State private var navigateToHomePage = false
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
+    
     var body: some View {
-        VStack{
-            NavigationView{
+        NavigationView {
+            VStack {
                 if userLoggedIn {
-                    NavigationLink(
-                    destination: HomePageView(),isActive: $navigateToHomePage, // Automatically activates navigation
-                        label: {
-                            EmptyView() // No need for a visible label
-                            }
-                    )
-                    .onAppear {
-                        // Trigger the navigation as soon as the condition is met
-                    navigateToHomePage = true
-                }
-            }
-                else{
+                    // Navigate to HomePage if the user is logged in
+                    HomePageView()
+                } else {
+                    // Stay on the Login page if the user isn't logged in
                     LoginView()
                 }
-                
             }
-        }
-            .onAppear(){
-                Auth.auth().addStateDidChangeListener{auth,user in
-                    if(user != nil){
-                        userLoggedIn = true
-                    }else{
-                        userLoggedIn=false
-                    }
+            .onAppear {
+                // Listen for changes in authentication state
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    userLoggedIn = (user != nil)
                 }
             }
         }
     }
-    #Preview {
-        HomeView()
-    }
+}
+
+#Preview {
+    HomeView()
+}

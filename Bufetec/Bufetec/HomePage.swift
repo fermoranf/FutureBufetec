@@ -4,7 +4,10 @@
 //
 //  Created by Luis Gzz on 24/09/24.
 //
+
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct HomePageView: View {
     // Definimos el layout de la cuadrícula
@@ -12,12 +15,15 @@ struct HomePageView: View {
         GridItem(.flexible(), spacing: 20), // Primera columna
         GridItem(.flexible(), spacing: 20)  // Segunda columna
     ]
-   
+    
+    @Environment(\.presentationMode) var presentationMode
+    @State private var showLogin = false
+    @State private var showLogoutAlert = false // State to control alert visibility
+    
     var body: some View {
         NavigationView {
             VStack {
                 // Sección de botones organizados en una cuadrícula 2x3
-                
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 20) {
                     NavigationLink(destination: AgendarCitaView()) {
@@ -54,7 +60,7 @@ struct HomePageView: View {
             .navigationBarTitleDisplayMode(.large) // Estilo del título
             .navigationBarItems(trailing:
                 Button(action: {
-                    // Acción para el botón del lado derecho (si se necesita)
+                    showLogoutAlert = true // Show the alert when the button is tapped
                 }) {
                     Image(systemName: "person.crop.circle")
                         .foregroundColor(Color(hex: "#003366")) // Color azul oscuro para el ícono
@@ -68,6 +74,32 @@ struct HomePageView: View {
                         .foregroundColor(Color(hex: "#003366")) // Color azul oscuro para el título
                 }
             }
+            // If user logs out, show the login view
+            .fullScreenCover(isPresented: $showLogin) {
+                LoginView()
+            }
+            // Alert to confirm sign-out
+            .alert(isPresented: $showLogoutAlert) {
+                Alert(
+                    title: Text("Cerrar sesión"),
+                    message: Text("¿Estás seguro de que quieres cerrar sesión?"),
+                    primaryButton: .destructive(Text("Cerrar sesión")) {
+                        logOut() // Proceed with logging out
+                    },
+                    secondaryButton: .cancel(Text("Cancelar"))
+                )
+            }
+        }
+    }
+    
+    // Function to log out the user
+    private func logOut() {
+        do {
+            try Auth.auth().signOut()
+            // Redirect to login view after signing out
+            showLogin = true
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
         }
     }
 }
