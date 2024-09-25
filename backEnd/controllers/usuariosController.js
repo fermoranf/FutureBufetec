@@ -87,3 +87,37 @@ exports.getAbogados = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+//get picture of abogado
+exports.getPicture = async (req, res) => {
+    const email = req.params.email;
+    try {
+        const usuario = await USUARIOS.findOne({ correo: email });
+        if (!usuario) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        res.status(200).json(usuario.foto);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+//update picture of abogado
+exports.updatePicture = async (req, res) => {
+    const { email, newPicture } = req.body;
+
+    try {
+        const userId = await idByEmail(email);
+
+        if (!userId) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        await USUARIOS.findByIdAndUpdate(userId, { foto: newPicture }, { new: true });
+
+        const updatedUser = await USUARIOS.findById(userId);
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
