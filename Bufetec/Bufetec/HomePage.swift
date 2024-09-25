@@ -11,6 +11,9 @@ import FirebaseAuth
 
 struct HomePageView: View {
     // Definimos el layout de la cuadrícula
+    var userEmail: String?
+    var firstName: String?
+    var lastName: String?
     let columns = [
         GridItem(.flexible(), spacing: 20), // Primera columna
         GridItem(.flexible(), spacing: 20)  // Segunda columna
@@ -22,9 +25,13 @@ struct HomePageView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack {Spacer()
+                VStack {
+                            Text("Welcome, \(firstName ?? "User") \(lastName ?? "")!")
+                            Text("Email: \(userEmail ?? "No email")")
+                        }
                 // Sección de botones organizados en una cuadrícula 2x3
-                Spacer()
+                
                 LazyVGrid(columns: columns, spacing: 20) {
                     NavigationLink(destination: AgendarCitaView()) {
                         HomeButton(title: "Agendar Cita", iconName: "calendar.badge.plus", color: Color(hex: "#4A90E2"))
