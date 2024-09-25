@@ -24,6 +24,16 @@ struct LoginView: View {
             
             VStack(spacing: 40) {
                 // Logo con animación de Fade-In
+                Spacer()
+                Text("Justicia al alcance de todos")
+                    .font(.largeTitle) // Tamaño grande para el eslogan
+                    .fontWeight(.bold) // Negrita para mayor impacto
+                    .foregroundColor(Color(hex: "#003366")) // Color azul oscuro
+                    .padding()
+                    .shadow(color: Color(hex: "#0D214D").opacity(0.3), radius: 4, x: 0, y: 4) // Sombra para profundidad
+                    .multilineTextAlignment(.center) // Alinear el texto al centro
+
+                
                 Image("bufetec_logo")
                     .resizable()
                     .scaledToFit()
