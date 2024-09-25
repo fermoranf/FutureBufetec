@@ -9,6 +9,7 @@ class UserModel: Codable {
     var especiality: String
     var caseID: [String]
     var description: String
+    var photo: String
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -19,9 +20,10 @@ class UserModel: Codable {
         case especiality = "especialidad"
         case caseID = "caso_id"
         case description = "descripcion"
+        case photo = "foto"
     }
 
-    init(id: String, type: String, userID: String, name: String, email: String, especiality: String, caseID: [String], description: String) {
+    init(id: String, type: String, userID: String, name: String, email: String, especiality: String, caseID: [String], description: String, photo: String) {
         self.id = id
         self.type = type
         self.userID = userID
@@ -30,6 +32,7 @@ class UserModel: Codable {
         self.especiality = especiality
         self.caseID = caseID
         self.description = description
+        self.photo = photo
     }
 }
 
@@ -44,6 +47,7 @@ extension UserModel {
         email: "default_email@example.com",
         especiality: "default_speciality",
         caseID: ["default_case_001"], // Example default case ID
-        description: "default_description"
+        description: "default_description",
+        photo: "default_picture"
     )
 }
