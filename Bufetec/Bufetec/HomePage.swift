@@ -34,7 +34,8 @@ struct HomePageView: View {
                         HomeButton(title: "Consultar Abogados", iconName: "person.3.fill", color: Color(hex: "#4A90E2"))
                     }
                     
-                    NavigationLink(destination: NovedadesLegalesView()) {
+                    NavigationLink(destination:
+                        NovedadesLegales()) {
                         HomeButton(title: "Novedades Legales", iconName: "newspaper.fill", color: Color(hex: "#4A90E2"))
                     }
                     
