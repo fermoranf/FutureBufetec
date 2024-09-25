@@ -9,6 +9,7 @@ const idByEmail = async (email) => {
     }
 };
 
+
 const updateDescription = async (_id, newDescription) => {
     try {
         return await USUARIOS.findByIdAndUpdate(_id, { descripcion: newDescription }, { new: true });
@@ -88,6 +89,72 @@ exports.getAbogados = async (req, res) => {
     }
 };
 
+
+exports.loginOrRegister = async (req, res) => {
+    const { email } = req.body;
+
+    // Verifica que el email esté presente en el cuerpo de la solicitud
+    if (!email) {
+        return res.status(400).json({ message: 'Email es requerido' });
+    }
+
+    try {
+        // Busca el usuario en la base de datos por su correo electrónico
+        let usuario = await USUARIOS.findOne({ correo: email.trim() });
+
+        if (usuario) {
+            // Si el usuario ya existe, retornarlo
+            console.log('Usuario encontrado:', usuario);
+            return res.status(200).json({ message: 'Usuario ya registrado', usuario });
+        }
+
+        // Si el usuario no existe, llamar a la función para crear un nuevo usuario
+        return res.status(400).json({ message: 'Usuario no encontrado, por favor proporcione más datos para registrarse.' });
+        
+    } catch (error) {
+        // Manejo de errores
+        console.log('Error:', error.message);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+exports.createUser = async (req, res) => {
+    const { email, nombre, tipo } = req.body;
+
+    // Verificar que los campos requeridos estén presentes
+    if (!email || !nombre || !tipo) {
+        return res.status(400).json({ message: 'Email, nombre y tipo son requeridos para registrar un nuevo usuario' });
+    }
+
+    try {
+        // Verificar nuevamente si el usuario ya existe (en caso de una segunda solicitud)
+        let usuario = await USUARIOS.findOne({ correo: email.trim() });
+
+        if (usuario) {
+            return res.status(400).json({ message: 'Usuario ya registrado con este correo' });
+        }
+
+        // Crear el nuevo usuario
+        const nuevoUsuario = new USUARIOS({
+            correo: email.trim(),
+            nombre,
+            tipo,
+            foto: '/media/foto_generica.png' // Foto predeterminada o se puede personalizar
+        });
+
+        // Guardar el usuario en la base de datos
+        const usuarioCreado = await nuevoUsuario.save();
+
+        console.log('Nuevo usuario creado:', usuarioCreado);
+        return res.status(201).json({ message: 'Usuario creado exitosamente', usuario: usuarioCreado });
+
+    } catch (error) {
+        // Manejo de errores
+        console.log('Error:', error.message);
+        return res.status(500).json({ message: error.message });
+    }
+};
+
 exports.getPicture = async (req, res) => {
     const email = req.params.email;
 
@@ -111,26 +178,38 @@ exports.getPicture = async (req, res) => {
     }
 };
 
-//update picture of abogado
 exports.updatePicture = async (req, res) => {
     const { email, newPicture } = req.body;
 
+    // Check if email and newPicture are provided
+    if (!email || !newPicture) {
+        return res.status(400).json({ message: 'Email o nueva imagen no proporcionados' });
+    }
+
     try {
+        // Log the email being passed
+        console.log('Email recibido:', email);
+
         // Find the user by email and update the foto field
         const updatedUser = await USUARIOS.findOneAndUpdate(
-            { correo: email }, 
+            { correo: email.trim() }, // Using trim() to avoid leading/trailing spaces
             { foto: newPicture }, 
             { new: true } // Return the updated user
         );
 
+        // Log the query result to check if a user is found
+        console.log('Usuario actualizado:', updatedUser);
+
         // If no user is found, send a 404 response
         if (!updatedUser) {
+            console.log('Usuario no encontrado');
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
         // Send back the updated user with the new picture
-        res.status(200).json(updatedUser);
+        return res.status(200).json(updatedUser);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.log('Error encontrado:', error.message);
+        return res.status(500).json({ message: error.message });
     }
 };
