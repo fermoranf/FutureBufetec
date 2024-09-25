@@ -9,6 +9,6 @@ router.get("/getAllAbogados", usuariosController.getAbogados);
 router.get("/userByEmail/:email", usuariosController.getUsuarioByEmail);
 router.put("/updateDescriptionAndEspecialidad", usuariosController.updateDescriptionAndEspecialidad);
 router.get("/getPicture/:email", usuariosController.getPicture);
-router.post("/updatePicture", usuariosController.updatePicture);
+router.post("/updatePicture/:email", usuariosController.updatePicture);
 
 module.exports = router;

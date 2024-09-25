@@ -88,17 +88,26 @@ exports.getAbogados = async (req, res) => {
     }
 };
 
-//get picture of abogado
 exports.getPicture = async (req, res) => {
     const email = req.params.email;
+
     try {
         const usuario = await USUARIOS.findOne({ correo: email });
+
+        console.log('Usuario encontrado:', usuario);
+
         if (!usuario) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
-        res.status(200).json(usuario.foto);
+        if (!usuario.foto) {
+            console.log('Foto no disponible:', usuario);
+            return res.status(404).json({ message: 'Foto no disponible para este usuario' });
+        }
+        console.log('Foto encontrada:', usuario.foto);
+        return res.status(200).json({ foto: usuario.foto });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.log('Error encontrado:', error.message);
+        return res.status(500).json({ message: error.message });
     }
 };
 
@@ -107,15 +116,19 @@ exports.updatePicture = async (req, res) => {
     const { email, newPicture } = req.body;
 
     try {
-        const userId = await idByEmail(email);
+        // Find the user by email and update the foto field
+        const updatedUser = await USUARIOS.findOneAndUpdate(
+            { correo: email }, 
+            { foto: newPicture }, 
+            { new: true } // Return the updated user
+        );
 
-        if (!userId) {
+        // If no user is found, send a 404 response
+        if (!updatedUser) {
             return res.status(404).json({ message: 'Usuario no encontrado' });
         }
 
-        await USUARIOS.findByIdAndUpdate(userId, { foto: newPicture }, { new: true });
-
-        const updatedUser = await USUARIOS.findById(userId);
+        // Send back the updated user with the new picture
         res.status(200).json(updatedUser);
     } catch (error) {
         res.status(500).json({ message: error.message });
