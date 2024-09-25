@@ -13,7 +13,7 @@ struct CaseRowView: View {
     var body: some View {
         HStack {
             // Case ID
-            Text("N°:\(legalCase.caseID)")
+            Text("N°: \(legalCase.caseID)")
                 .font(.headline)
                 .padding(.leading, 8)
             
@@ -35,11 +35,11 @@ struct CaseRowView: View {
     // Function to get status color
     private func statusColor(for status: String) -> Color {
         switch status.lowercased() {
-        case "open":
+        case "abierto":
             return Color.green
-        case "in progress":
+        case "en progreso":
             return Color.yellow
-        case "closed":
+        case "cerrado":
             return Color.red
         default:
             return Color.gray

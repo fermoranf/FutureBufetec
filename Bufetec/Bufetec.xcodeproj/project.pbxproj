@@ -10,6 +10,7 @@
 		B4595C292CA33C0500920969 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4595C282CA33C0500920969 /* HomePage.swift */; };
 		D8053CEF2C9CA291006DE5ED /* CaseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8053CEE2C9CA291006DE5ED /* CaseRowView.swift */; };
 		D8295AAD2C9B5E7E0031DAF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8295AAA2C9B5E0A0031DAF2 /* GoogleService-Info.plist */; };
+		D860C96C2CA4859D0000C728 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860C96B2CA4859D0000C728 /* ProfileView.swift */; };
 		D8EE89422C9A1750002BD006 /* LegalCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89412C9A1750002BD006 /* LegalCase.swift */; };
 		D8EE89442C9A19B2002BD006 /* CaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */; };
 		D8EE89462C9A7481002BD006 /* CaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EE89452C9A7481002BD006 /* CaseListView.swift */; };
@@ -33,6 +34,7 @@
 		B4595C282CA33C0500920969 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		D8053CEE2C9CA291006DE5ED /* CaseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseRowView.swift; sourceTree = "<group>"; };
 		D8295AAA2C9B5E0A0031DAF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D860C96B2CA4859D0000C728 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D8EE89412C9A1750002BD006 /* LegalCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalCase.swift; sourceTree = "<group>"; };
 		D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDetailView.swift; sourceTree = "<group>"; };
 		D8EE89452C9A7481002BD006 /* CaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseListView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				D8EE89432C9A19B2002BD006 /* CaseDetailView.swift */,
 				D8053CEE2C9CA291006DE5ED /* CaseRowView.swift */,
 				D8EE89452C9A7481002BD006 /* CaseListView.swift */,
+				D860C96B2CA4859D0000C728 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				B4595C292CA33C0500920969 /* HomePage.swift in Sources */,
 				D8EE89462C9A7481002BD006 /* CaseListView.swift in Sources */,
 				FBAD65BF2C99F99200A8A7D3 /* Item.swift in Sources */,
+				D860C96C2CA4859D0000C728 /* ProfileView.swift in Sources */,
 				D8EE89422C9A1750002BD006 /* LegalCase.swift in Sources */,
 				D8EE89442C9A19B2002BD006 /* CaseDetailView.swift in Sources */,
 				D8053CEF2C9CA291006DE5ED /* CaseRowView.swift in Sources */,
