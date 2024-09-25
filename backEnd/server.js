@@ -12,7 +12,10 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
 app.use(express.json());
+
+app.use("/media", express.static("media"));
 
 app.use('/api/faq', faqRoutes);
 app.use('/api/noticias', noticiasRoutes);
