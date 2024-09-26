@@ -15,7 +15,6 @@ struct LegalNews: Identifiable {
 }
 
 struct NovedadesLegales: View {
-    // Datos de ejemplo
     @State private var legalNews: [LegalNews] = [
         LegalNews(title: "Nueva reforma laboral en México", description: "El gobierno aprobó una reforma para mejorar las condiciones laborales.", date: "25 de septiembre, 2024"),
         LegalNews(title: "Cambios en el sistema judicial", description: "El poder judicial introduce cambios significativos en los procedimientos penales.", date: "20 de septiembre, 2024"),
@@ -23,9 +22,23 @@ struct NovedadesLegales: View {
         LegalNews(title: "Modificaciones a la ley de propiedad intelectual", description: "Cambios recientes en la ley protegen a los creadores de contenido digital.", date: "10 de septiembre, 2024")
     ]
     
+    // Estado para la barra de búsqueda
+    @State private var searchText = ""
+
+    var filteredNews: [LegalNews] {
+        if searchText.isEmpty {
+            return legalNews
+        } else {
+            return legalNews.filter { news in
+                news.title.lowercased().contains(searchText.lowercased()) ||
+                news.description.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            List(legalNews) { news in
+            List(filteredNews) { news in
                 VStack(alignment: .leading) {
                     Text(news.title)
                         .font(.headline)
@@ -45,9 +58,9 @@ struct NovedadesLegales: View {
             .navigationTitle("Novedades Legales en México")
             .background(Color.blue.opacity(0.05)) // Fondo azul pálido para toda la vista
             .navigationBarTitleDisplayMode(.inline) // Título centrado y compacto
-            .toolbarBackground(Color.blue, for: .navigationBar) // Color de fondo del navigation bar
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.light, for: .navigationBar) // Hace que el texto en el navigation bar sea blanco
+            .searchable(text: $searchText, prompt: "Buscar noticias legales") // Barra de búsqueda
         }
     }
 }
@@ -55,4 +68,3 @@ struct NovedadesLegales: View {
 #Preview {
     NovedadesLegales()
 }
-
